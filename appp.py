@@ -158,7 +158,7 @@ try:
     api_key = os.getenv("GOOGLE_API_KEY")
     if not api_key:
         st.error("GOOGLE_API_KEY not found. Please add it to your .env file.")
-    genai.configure(api_key=api_key)
+    genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
     model = genai.GenerativeModel('gemini-3-flash-preview')
 except Exception as e:
     st.error(f"Error initializing Gemini API: {str(e)}")
